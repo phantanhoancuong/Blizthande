@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import styles from '../styles/TypingArea.module.css';
+import Timer from '../components/Timer';
 
 
 export default function TypingArea() {
@@ -16,7 +17,7 @@ export default function TypingArea() {
             .then(response => response.text())
             .then(text => {
                 const words = text.split('\n').map(word => word.trim()).filter(word => word);
-                const wordNum = 50;
+                const wordNum = 20;
                 const generatedWords = [];
                 for (let i = 0; i < wordNum; i++) {
                     const randomIndex = Math.floor(Math.random() * words.length);
@@ -49,7 +50,7 @@ export default function TypingArea() {
 
     return (
         <div className={styles.typingAreaContainer}>
-            <h2 className={styles.typingAreaWords} tabIndex="-1">
+            <h2 className={styles.typingAreaWords}>
                 {wordList.map((word, index) => {
                     let wordStyle = styles.defaultWord;
                     if (index === curIndex) {
@@ -74,7 +75,7 @@ export default function TypingArea() {
                     value={inputValue}
                     autoFocus
                 />
-                <h1>Timer</h1>
+                <Timer />
             </div>
             <h1>Correct words: {rightWordNum} / 50</h1>
         </div>

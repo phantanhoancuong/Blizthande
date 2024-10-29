@@ -1,9 +1,9 @@
 .typingAreaContainer {
-    margin-left: 6rem;
-    margin-right: 6rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    width: 80%;
+    justify-self: center;
 }
 
 .typingAreaWords {

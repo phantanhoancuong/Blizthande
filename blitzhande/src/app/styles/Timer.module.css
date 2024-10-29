@@ -1,0 +1,9 @@
+.timerContainer {
+    font-size: 2rem;
+    text-align: left;
+    background-color: red;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: white;
+    color: black;
+}

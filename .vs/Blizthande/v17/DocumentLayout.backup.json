@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\components\\TypingArea.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:blitzhande\\src\\app\\components\\TypingArea.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\styles\\TypingArea.module.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:blitzhande\\src\\app\\styles\\TypingArea.module.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\layout.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:blitzhande\\src\\app\\layout.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\globals.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:blitzhande\\src\\app\\globals.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\components\\TypingArea.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:blitzhande\\src\\app\\components\\TypingArea.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\layout.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:blitzhande\\src\\app\\layout.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\styles\\Toolbar.module.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -29,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\styles\\Header.module.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:blitzhande\\src\\app\\styles\\Header.module.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:blitzhande\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\page.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -54,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,33 +58,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "TypingArea.module.css",
               "DocumentMoniker": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\styles\\TypingArea.module.css",
               "RelativeDocumentMoniker": "blitzhande\\src\\app\\styles\\TypingArea.module.css",
               "ToolTip": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\styles\\TypingArea.module.css",
               "RelativeToolTip": "blitzhande\\src\\app\\styles\\TypingArea.module.css",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABkAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAADwvwwAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-10-20T13:11:42.275Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "TypingArea.jsx",
               "DocumentMoniker": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\components\\TypingArea.jsx",
               "RelativeDocumentMoniker": "blitzhande\\src\\app\\components\\TypingArea.jsx",
               "ToolTip": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\components\\TypingArea.jsx",
               "RelativeToolTip": "blitzhande\\src\\app\\components\\TypingArea.jsx",
-              "ViewState": "AgIAAB4AAAAAAAAAAADwvygAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAQwFAAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2024-10-20T13:11:34.605Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-20T13:11:34.605Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "globals.css",
               "DocumentMoniker": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\globals.css",
               "RelativeDocumentMoniker": "blitzhande\\src\\app\\globals.css",
@@ -96,12 +91,11 @@
               "RelativeToolTip": "blitzhande\\src\\app\\globals.css",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAA8AAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-10-20T12:23:12.374Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-20T12:23:12.374Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "layout.js",
               "DocumentMoniker": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\layout.js",
               "RelativeDocumentMoniker": "blitzhande\\src\\app\\layout.js",
@@ -109,8 +103,7 @@
               "RelativeToolTip": "blitzhande\\src\\app\\layout.js",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-10-20T11:15:30.49Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-20T11:15:30.49Z"
             },
             {
               "$type": "Document",
@@ -122,8 +115,7 @@
               "RelativeToolTip": "blitzhande\\src\\app\\page.module.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-10-20T11:15:29.414Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-20T11:15:29.414Z"
             },
             {
               "$type": "Document",
@@ -135,12 +127,11 @@
               "RelativeToolTip": "blitzhande\\src\\app\\styles\\Toolbar.module.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-10-20T11:11:02.942Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-20T11:11:02.942Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "Toolbar.jsx",
               "DocumentMoniker": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\components\\Toolbar.jsx",
               "RelativeDocumentMoniker": "blitzhande\\src\\app\\components\\Toolbar.jsx",
@@ -164,7 +155,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "Header.jsx",
               "DocumentMoniker": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\components\\Header.jsx",
               "RelativeDocumentMoniker": "blitzhande\\src\\app\\components\\Header.jsx",
@@ -176,7 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "page.js",
               "DocumentMoniker": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\page.js",
               "RelativeDocumentMoniker": "blitzhande\\src\\app\\page.js",
@@ -185,18 +176,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-10-20T10:57:06.597Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "package.json",
-              "DocumentMoniker": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\package.json",
-              "RelativeDocumentMoniker": "blitzhande\\package.json",
-              "ToolTip": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\package.json",
-              "RelativeToolTip": "blitzhande\\package.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-20T10:56:28.083Z"
             }
           ]
         }

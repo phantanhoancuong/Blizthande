@@ -1,8 +1,9 @@
 .headerContainer {
     display: flex;
     justify-content: space-between;
-    margin-left: 6rem;
-    margin-right: 6rem;
+    align-self: center;
+    align-items: end;
+    width: 80%;
 }
 
 .headerSection {

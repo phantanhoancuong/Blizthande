@@ -1,0 +1,15 @@
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 6rem;
+    margin-right: 6rem;
+}
+
+.headerSection {
+    display: flex;
+    gap: 2rem;
+}
+
+.logoSubtext {
+    color: var(--primary-tint);
+}

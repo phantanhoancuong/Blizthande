@@ -1,0 +1,13 @@
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+}
+.headerSection {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+
+

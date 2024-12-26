@@ -4,17 +4,27 @@
     gap: 2rem;
     width: 80%;
     justify-self: center;
+
 }
 
-.typingAreaWords {
+.typingAreaTextBox {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
     z-index: 1;
-    font-size: 2rem;
     width: 100%;
     color: gray;
-    line-height: 150%;
+    line-height: 500%;
 }
 
-.typingAreaInput {
+.typingAreaText {
+    font-size: 2rem;
+}
+
+
+.input {
     text-decoration: none;
     z-index: 2;
     border: none;
@@ -28,10 +38,19 @@
     resize: none;
     border: 1px solid red;
     max-width: 700px;
+    display: flex;
 }
 
-.typingInputRow {
+.inputRow {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: grey;
+}
+
+
+.inputContainer {
     gap: 2rem;
     align-items: center;
     justify-content: center;
@@ -52,5 +71,9 @@
 
 .incorrectWord {
     color: red;
+}
+
+.invisibleWord {
+    visibility: hidden;
 }
 

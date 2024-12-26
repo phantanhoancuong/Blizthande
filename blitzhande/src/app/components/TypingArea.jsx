@@ -1,83 +1,218 @@
-'use client';
-import { useEffect, useState } from 'react';
-import styles from '../styles/TypingArea.module.css';
-import Timer from '../components/Timer';
-
+'use client'
+import { useEffect, useState, useRef } from 'react'
+import styles from '../styles/TypingArea.module.css'
+import Word from '../components/Word'
+import Timer from '../components/Timer'
 
 export default function TypingArea() {
-    const [wordList, setWordList] = useState([]);
-    const [inputValue, setInputValue] = useState('');
+    const [generatedWords, setGeneratedWords] = useState([]); 
+    const [input, setInput] = useState('');
+    const [wordIndex, setWordIndex] = useState(0);
+    const [correctWordNum, setCorrectWordNum] = useState(0);
+    const [correctWordIndex, setCorrectWordIndex] = useState(new Set());
+    const [incorrectWordIndex, setIncorrectWordIndex] = useState(new Set());
+    const [timeLimit, setTimeLimit] = useState(10);
+    const [timeRemaining, setTimeRemaining] = useState(timeLimit);
+    const [wordListPath, setWordListPath] = useState('/words.txt');
+    const [wordList, setWordList] = useState(new Set());
+    const [charOnLineNum, setCharOnLineNum] = useState(0);
+    const [charOnLineLim, setCharOnLineLim] = useState(0);
+    const [rawCharNum, setRawCharNum] = useState(0);
+    const [correctCharNum, setCorrectCharNum] = useState(0);
+    const [incorrectCharNum, setIncorrectCharNum] = useState(0);
+    const [charNum, setCharNum] = useState(0);
+
+    const [lineStartIndex, setLineStartIndex] = useState(0);
+    const [lineEndIndex, setLineEndIndex] = useState(-1);
     const [curIndex, setCurIndex] = useState(0);
-    const [rightWordNum, setRightWordNum] = useState(0);
-    const [incorrectWords, setIncorrectWords] = useState(new Set());
-    const [correctWords, setCorrectWords] = useState(new Set());
+
+    const [wordNum, setWordNum] = useState(100);
+
+    const wordContainerRef = useRef(null);
+    const wordRef = useRef(null);
+
+    const [wordContainerWidth, setWordContainerWidth] = useState(0);
+    const [wordWidth, setWordWidth] = useState(0);
 
     useEffect(() => {
-        fetch('/words.txt')
+        setWordContainerWidth(wordContainerRef.current.getBoundingClientRect().width)
+    }, [])
+
+    useEffect(() => {
+        const updateWordContainerWidth = () => {
+            setWordContainerWidth(wordContainerRef.current.getBoundingClientRect().width);
+        };
+
+        window.addEventListener('resize', updateWordContainerWidth);
+    }, [wordContainerRef]);
+
+    useEffect(() => {
+        const updateWordWidth = () => {
+            setWordWidth(wordRef.current.getBoundingClientRect().width);
+        };
+        window.addEventListener('resize', updateWordWidth);
+        updateWordWidth();
+
+        return () => window.removeEventListener('resize', updateWordWidth);
+    }, [wordRef]);
+
+    useEffect(() => {
+        setCharOnLineLim(Math.floor(wordContainerWidth / wordWidth));
+    }, [wordContainerWidth, wordWidth]);
+
+
+    useEffect(() => {
+        fetch(wordListPath)
             .then(response => response.text())
             .then(text => {
-                const words = text.split('\n').map(word => word.trim()).filter(word => word);
-                const wordNum = 20;
-                const generatedWords = [];
-                for (let i = 0; i < wordNum; i++) {
-                    const randomIndex = Math.floor(Math.random() * words.length);
-                    generatedWords.push(words[randomIndex]);
-                };
-                setWordList(generatedWords);
-            });
-    }, []);
+                const words = text.split(/\r?\n/);
+                setWordList(words);
+                setGeneratedWords(randomWordsByNum(words, wordNum));
+            })
+            .catch(error => console.error('Error fetching word list:', error));
+
+    }, [wordListPath, wordNum]);
+
+    const randomWordsByNum = (words, count) => {
+        const selectedWords = [];
+        for (let i = 0; i < count; i++) {
+            const randomIndex = Math.floor(Math.random() * words.length);
+            selectedWords.push(words[randomIndex]);
+        }
+        return selectedWords;
+    }
 
     const handleInputChange = (event) => {
         const curWord = event.target.value;
         const lastChar = curWord[curWord.length - 1];
+        const inputType = event.nativeEvent.inputType;
+        const curWordTrimmed = curWord.trim();
+
+        if (curWordTrimmed.length < input.length) {
+            setCharNum(prev => prev - 1);
+            setRawCharNum(prev => prev + 1);
+        }
+        else if (curWordTrimmed.length > 0) {
+            setCharNum(prev => prev + 1);
+            setRawCharNum(prev => prev + 1);
+        }
+        else {
+            console.log("Cur word is equal to input");
+            return;
+        }
 
         if (lastChar === ' ') {
-            if (curWord.trim().length > 0) {
-                const currentWord = curWord.trim();
-                if (currentWord === wordList[curIndex]) {
-                    setRightWordNum(rightWordNum + 1);
-                    setCorrectWords(prev => new Set(prev).add(curIndex));
-                } else {
-                    setIncorrectWords(prev => new Set(prev).add(curIndex));
-                }
-                setCurIndex(curIndex + 1);
-                setInputValue('');
+            const curWordTrimmed = curWord.trim();
+            const curCharOnLineNum = charOnLineNum + generatedWords[curIndex].length + 1;
+
+            // To mark the words' indices of the last typed line
+            if (curIndex + 1 < generatedWords.length && curCharOnLineNum + generatedWords[curIndex + 1].length > charOnLineLim) {
+                setLineStartIndex(lineEndIndex + 1);
+                setLineEndIndex(curIndex + 1);
+                setCharOnLineNum(0);
             }
+            else {
+                setCharOnLineNum(curCharOnLineNum);
+            }
+
+            if (curWordTrimmed === generatedWords[curIndex]) {
+                setCorrectWordIndex(prevItems => new Set(prevItems).add(curIndex));
+            }
+            else {
+                setIncorrectWordIndex(prevItems => new Set(prevItems).add(curIndex));
+            }
+
+            setCurIndex(prev => prev + 1);
+            setInput('');
         } else {
-            setInputValue(curWord);
+            setInput(curWord);
         }
     }
 
+    const handleKeyDown = (event) => {
+
+    }
+
     return (
-        <div className={styles.typingAreaContainer}>
-            <h2 className={styles.typingAreaWords}>
-                {wordList.map((word, index) => {
-                    let wordStyle = styles.defaultWord;
-                    if (index === curIndex) {
-                        wordStyle = styles.currentWord;
-                    } else if (correctWords.has(index)) {
-                        wordStyle = styles.correctWord;
-                    } else if (incorrectWords.has(index)) {
-                        wordStyle = styles.incorrectWord;
-                    }
-                    return (
-                        <span key={index} className={wordStyle}>
-                            {word}{' '}
-                        </span>
-                    );
-                })}
+        <div>
+            <h2 ref={wordRef} className={styles.typingAreaText} style={{ visibility: 'hidden', position: 'absolute' }}>
+                A
             </h2>
-            <div className={styles.typingInputRow}>
-                <input
-                    type="text"
-                    className={styles.typingAreaInput}
-                    onChange={handleInputChange}
-                    value={inputValue}
-                    autoFocus
-                />
-                <Timer />
-            </div>
-            <h1>Correct words: {rightWordNum} / 50</h1>
+            {timeRemaining > 0 ? (
+                <div className={styles.typingAreaContainer }>
+                    <div ref={wordContainerRef} className={styles.typingAreaTextBox}>
+                        <h2 className={styles.typingAreaText}>
+                            {lineEndIndex < 0 ? (
+                                <span style={{ visibility: 'hidden' }}>
+                                    A
+                                </span>
+                            ) : (
+                                generatedWords.map((word, index) => {
+                                    let wordStyle = styles.defaultWord;
+                                    if (index < lineStartIndex || index >= lineEndIndex) {
+                                        return null;
+                                    } else if (correctWordIndex.has(index)) {
+                                        wordStyle = styles.correctWord;
+                                    } else if (incorrectWordIndex.has(index)) {
+                                        wordStyle = styles.incorrectWord;
+                                    }
+                                    return (
+                                        <span key={index} className={wordStyle}>
+                                            {word}{' '}
+                                        </span>
+                                    );
+                                })
+                            )}
+                        </h2>
+                        <h2 className={styles.typingAreaText}>
+                            {generatedWords.map((word, index) => {
+                                // To apply correct styling depending on the state of each word
+                                let wordStyle = styles.defaultWord;
+                                if (index < lineEndIndex) {
+                                    return null;
+                                } else if (index === curIndex) {
+                                    wordStyle = styles.currentWord;
+                                } else if (correctWordIndex.has(index)) {
+                                    wordStyle = styles.correctWord;
+                                } else if (incorrectWordIndex.has(index)) {
+                                    wordStyle = styles.incorrectWord;
+                                }
+                                return (
+                                    <span key={index} className={wordStyle}>
+                                        {word}{' '}
+                                    </span>
+                                );
+                            })}
+                        </h2>
+                       
+                    </div>
+                    <div className={styles.inputRow}>
+                        <input
+                            type="text"
+                            className={styles.input}
+                            onChange={handleInputChange}
+                            onKeyDown={handleKeyDown}
+                            value={input}
+                            autoFocus />
+                        <Timer
+                            setTimeRemaining={setTimeRemaining}
+                            timeRemaining={timeRemaining} />
+                    </div>
+                    <div>
+                        <h2>Line Start Index: {lineStartIndex}</h2>
+                        <h2>Char Limit Per Line: {charOnLineLim}</h2>
+                        <h2>Char On Line Num: {charOnLineNum}</h2>
+                        <h2>Char Num: {charNum}</h2>
+                        <h2>Raw Char Num: {rawCharNum}</h2>
+                    </div>
+                </div>
+
+            ) : (
+                <div className={styles.typingAreaContainer}>
+                    <h2>Gross WPM: {Math.floor((rawCharNum / 5.0) * (60.0 / timeLimit))}</h2>
+                </div>
+            )
+            }
         </div>
     );
 }

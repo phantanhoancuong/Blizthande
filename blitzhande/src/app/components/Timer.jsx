@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import styles from '../styles/Timer.module.css'
 
-export default function Timer() {
-    const [timeRemaining, setTimeRemaining] = useState(60);
+export default function Timer({ setTimeRemaining, timeRemaining }) {
     useEffect(() => {
         if (timeRemaining > 0) {
             const timer = setInterval(() => {
@@ -11,14 +10,14 @@ export default function Timer() {
 
             return () => clearInterval(timer);
         }
-    }, [timeRemaining]);
+    }, [setTimeRemaining, timeRemaining]);
 
     return (
-        <div className={styles.timerContainer }>
+        <div className={styles.timerContainer}>
             {timeRemaining > 0 ? (
-                <span>{timeRemaining}</span>
-            ) : (
-                <h1>{"Time's up!"}</h1>
+                <p>{timeRemaining}</p>
+            ): (
+                <p>{"Time's up!"}</p>
             )}
         </div>
     );

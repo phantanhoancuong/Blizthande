@@ -1,0 +1,37 @@
+.toggleButton {
+    font-size: 1.2rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: var(--secondary-tint);
+    user-select: none;
+    transition: transform 0.2s;
+}
+
+.toggleButton:hover {
+    color: var(--tertiary-tint);
+    transform: scale(1.1);
+}
+
+.toggleButton:active {
+    color: var(--secondary-tint);
+}
+
+.selectedToggleButton:hover {
+    color: var(--tertiary-tint);
+    transform: scale(1.1);
+}
+
+.selectedToggleButton:active {
+    color: var(--secondary-tint);
+}
+
+.selectedToggleButton {
+    font-size: 1.2rem;
+    color: var(--primary-tint);
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    user-select: none;
+    transition: transform 0.2s;
+}

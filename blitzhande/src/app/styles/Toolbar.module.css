@@ -3,8 +3,16 @@
     gap: 2rem;
     justify-content: center;
     align-self: center;
+    align-items: center;
     background-color: var(--accent);
     max-width: 800px;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    border-radius: 1rem;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.divider {
+    width: 2px;
+    height: 2rem;
+    z-index: 23;
+    background-color: var(--secondary-tint);
 }

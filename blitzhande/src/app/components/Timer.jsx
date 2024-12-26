@@ -1,16 +1,22 @@
+'use client'
 import { useEffect, useState } from 'react';
 import styles from '../styles/Timer.module.css'
 
-export default function Timer({ setTimeRemaining, timeRemaining }) {
+export default function Timer({ setTimeRemaining, timeRemaining, timerOn, setTimerOn, timeLimit}) {
     useEffect(() => {
-        if (timeRemaining > 0) {
+        if (timerOn && timeRemaining > 0) {
             const timer = setInterval(() => {
                 setTimeRemaining(prev => prev - 1);
             }, 1000);
 
             return () => clearInterval(timer);
         }
-    }, [setTimeRemaining, timeRemaining]);
+    }, [setTimeRemaining, timeRemaining, timerOn]);
+
+    useEffect(() => {
+        setTimerOn(false);
+        setTimeRemaining(timeLimit);
+    },[timeLimit, setTimeRemaining, setTimerOn])
 
     return (
         <div className={styles.timerContainer}>

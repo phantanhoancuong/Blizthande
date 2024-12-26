@@ -1,8 +1,9 @@
 :root {
-    --background: #121212;
-    --accent: #282828;
-    --primary-tint: #fff700;
-    --secondary-tint: #ffffff;
+    --background: #2E2D2D;
+    --accent: #272424;
+    --primary-tint: yellow;
+    --secondary-tint: #B3B3B3;
+    --tertiary-tint: #ECECEC;
 }
 
 html,

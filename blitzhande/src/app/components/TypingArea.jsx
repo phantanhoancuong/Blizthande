@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import styles from '../styles/TypingArea.module.css';
 import Word from '../components/Word';
 import Timer from '../components/Timer';
@@ -30,41 +30,7 @@ export default function TypingArea({ mode, timeMode, wordMode }) {
     const [timerOn, setTimerOn] = useState(false);
     const [wordContainerWidth, setWordContainerWidth] = useState(0);
     const [wordWidth, setWordWidth] = useState(0);
-
-    useEffect(() => {
-        if (mode !== 'time') return;
-        setTimeLimit(timeMode);
-        setRawCharNum(0);
-        setInput('');
-        setLineStartIndex(0);
-        setLineEndIndex(-1);
-        setGeneratedWords(randomWordsByNum(wordList, wordNum));
-    }, [timeMode, mode, wordList, wordNum]);
-
-    useEffect(() => {
-        setWordContainerWidth(wordContainerRef.current.getBoundingClientRect().width);
-    }, []);
-
-    useEffect(() => {
-        const updateWordContainerWidth = () => {
-            setWordContainerWidth(wordContainerRef.current.getBoundingClientRect().width);
-        };
-        window.addEventListener('resize', updateWordContainerWidth);
-        return () => window.removeEventListener('resize', updateWordContainerWidth);
-    }, []);
-
-    useEffect(() => {
-        const updateWordWidth = () => {
-            setWordWidth(wordRef.current.getBoundingClientRect().width);
-        };
-        window.addEventListener('resize', updateWordWidth);
-        updateWordWidth();
-        return () => window.removeEventListener('resize', updateWordWidth);
-    }, []);
-
-    useEffect(() => {
-        setCharOnLineLim(Math.floor(wordContainerWidth / wordWidth));
-    }, [wordContainerWidth, wordWidth]);
+    const [lineNum, setLineNum] = useState(3);
 
     useEffect(() => {
         fetch(wordListPath)
@@ -72,18 +38,122 @@ export default function TypingArea({ mode, timeMode, wordMode }) {
             .then(text => {
                 const words = text.split(/\r?\n/);
                 setWordList(words);
-                setGeneratedWords(randomWordsByNum(words, wordNum));
             })
             .catch(error => console.error('Error fetching word list:', error));
     }, [wordListPath, wordNum]);
 
-    const randomWordsByNum = (words, count) => {
-        const selectedWords = [];
-        for (let i = 0; i < count; i++) {
-            const randomIndex = Math.floor(Math.random() * words.length);
-            selectedWords.push(words[randomIndex]);
+    useEffect(() => {
+        if (mode === 'time' && timeRemaining > 0) {
+            const updateDimensions = () => {
+                setWordContainerWidth(wordContainerRef.current.getBoundingClientRect().width);
+                setWordWidth(wordRef.current.getBoundingClientRect().width);
+                setCharOnLineLim(Math.floor(wordContainerWidth / wordWidth));
+            };
+
+            updateDimensions();
+            window.addEventListener('resize', updateDimensions);
+            return () => window.removeEventListener('resize', updateDimensions);
         }
-        return selectedWords;
+    });
+
+    useEffect(() => {
+        initTest();
+    }, [mode, timeMode, wordMode, wordContainerWidth, wordWidth, wordList]);
+
+    const initTest = () => {
+        setRawCharNum(0);
+        setInput('');
+        setLineStartIndex(0);
+        setLineEndIndex(-1);
+        setGeneratedWords([]);
+        setTimeLimit(timeMode);
+        setTimeRemaining(timeMode);
+        setCorrectWordIndex(new Set());
+        setIncorrectWordIndex(new Set());
+        setCurIndex(0);
+        setCharOnLineNum(0);
+        setCharNum(0);
+
+        if (mode === 'time') {
+            setTimeLimit(timeMode);
+            let generated = [];
+            for (let i = 0; i < lineNum; i++) {
+                generated = generated.concat(randomWordsByLine());
+            }
+            setGeneratedWords(generated);
+            console.log(generated);
+        } else {
+            let generated = [];
+            for (let i = 0; i < wordMode; i++) {
+                generated.push(randomWord());
+            }
+            setGeneratedWords(generated);
+            console.log(generated);
+        }
+    }
+
+    function randomWord() {
+        const randomIndex = Math.floor(Math.random() * wordList.length);
+        return wordList[randomIndex];
+    }
+
+    const randomWordsByLine = () => {
+        let curChar = 0;
+        const generated = [];
+        let nextWord = randomWord();
+
+        while(nextWord && curChar + 1 + nextWord.length < charOnLineLim) {
+            generated.push(nextWord);
+            curChar += nextWord.length + 1;
+            nextWord = randomWord();
+        }
+
+        return generated;
+    }
+
+    const handleInputChangeTimeMode = (event) => {
+        if (!timerOn) {
+            setTimerOn(true);
+        }
+
+        const curWord = event.target.value;
+        const lastChar = curWord[curWord.length - 1];
+        const curWordTrimmed = curWord.trim();
+
+        if (curWordTrimmed.length < input.length) {
+            setCharNum(prev => prev - 1);
+            setRawCharNum(prev => prev + 1);
+        } else if (curWordTrimmed.length > 0) {
+            setCharNum(prev => prev + 1);
+            setRawCharNum(prev => prev + 1);
+        } else {
+            return;
+        }
+
+        if (lastChar === ' ') {
+            const curCharOnLineNum = charOnLineNum + generatedWords[curIndex].length + 1;
+
+            if (curIndex + 1 < generatedWords.length && curCharOnLineNum + generatedWords[curIndex + 1].length > charOnLineLim) {
+                setLineStartIndex(lineEndIndex);
+                setLineEndIndex(curIndex + 1);
+                setCharOnLineNum(0);
+                let generated = randomWordsByLine();
+                setGeneratedWords(generatedWords.concat(generated));
+            } else {
+                setCharOnLineNum(curCharOnLineNum);
+            }
+
+            if (curWordTrimmed === generatedWords[curIndex]) {
+                setCorrectWordIndex(prevItems => new Set(prevItems).add(curIndex));
+            } else {
+                setIncorrectWordIndex(prevItems => new Set(prevItems).add(curIndex));
+            }
+
+            setCurIndex(prev => prev + 1);
+            setInput(' ');
+        } else {
+            setInput(curWord);
+        }
     };
 
     const handleInputChange = (event) => {
@@ -162,7 +232,7 @@ export default function TypingArea({ mode, timeMode, wordMode }) {
                         <input
                             type="text"
                             className={styles.input}
-                            onChange={handleInputChange}
+                            onChange={handleInputChangeTimeMode}
                             value={input}
                             autoFocus
                         />

@@ -7,16 +7,12 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:blitzhande\\src\\app\\components\\TypingArea.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\styles\\TypingArea.module.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:blitzhande\\src\\app\\styles\\TypingArea.module.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\components\\ClientWrapper.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:blitzhande\\src\\app\\components\\ClientWrapper.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\components\\Timer.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:blitzhande\\src\\app\\components\\Timer.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\components\\Toolbar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:blitzhande\\src\\app\\components\\Toolbar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,27 +30,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Toolbar.jsx",
-              "DocumentMoniker": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\components\\Toolbar.jsx",
-              "RelativeDocumentMoniker": "blitzhande\\src\\app\\components\\Toolbar.jsx",
-              "ToolTip": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\components\\Toolbar.jsx",
-              "RelativeToolTip": "blitzhande\\src\\app\\components\\Toolbar.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2024-12-26T10:00:02.542Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Timer.jsx",
-              "DocumentMoniker": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\components\\Timer.jsx",
-              "RelativeDocumentMoniker": "blitzhande\\src\\app\\components\\Timer.jsx",
-              "ToolTip": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\components\\Timer.jsx",
-              "RelativeToolTip": "blitzhande\\src\\app\\components\\Timer.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
-              "WhenOpened": "2024-12-26T09:40:22.194Z"
+              "DocumentIndex": 1,
+              "Title": "TypingArea.module.css",
+              "DocumentMoniker": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\styles\\TypingArea.module.css",
+              "RelativeDocumentMoniker": "blitzhande\\src\\app\\styles\\TypingArea.module.css",
+              "ToolTip": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\styles\\TypingArea.module.css",
+              "RelativeToolTip": "blitzhande\\src\\app\\styles\\TypingArea.module.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-12-29T04:21:04.216Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -64,20 +49,20 @@
               "RelativeDocumentMoniker": "blitzhande\\src\\app\\components\\TypingArea.jsx",
               "ToolTip": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\components\\TypingArea.jsx",
               "RelativeToolTip": "blitzhande\\src\\app\\components\\TypingArea.jsx",
-              "ViewState": "AgIAAPcAAAAAAAAAAAAvwAUBAAABAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAmwC0AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2024-12-26T08:43:48.647Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ClientWrapper.jsx",
               "DocumentMoniker": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\components\\ClientWrapper.jsx",
               "RelativeDocumentMoniker": "blitzhande\\src\\app\\components\\ClientWrapper.jsx",
               "ToolTip": "C:\\Users\\PC MSI\\Desktop\\Work\\Portfolio\\Blizthande\\blitzhande\\src\\app\\components\\ClientWrapper.jsx",
               "RelativeToolTip": "blitzhande\\src\\app\\components\\ClientWrapper.jsx",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABwAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2024-12-26T09:26:45.049Z",
               "EditorCaption": ""

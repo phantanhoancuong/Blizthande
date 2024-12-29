@@ -73,6 +73,7 @@ export default function TypingArea({ mode, timeMode, wordMode }) {
         setCurIndex(0);
         setCharOnLineNum(0);
         setCharNum(0);
+        setTimerOn(false);
 
         if (mode === 'time') {
             setTimeLimit(timeMode);
@@ -120,14 +121,18 @@ export default function TypingArea({ mode, timeMode, wordMode }) {
         const lastChar = curWord[curWord.length - 1];
         const curWordTrimmed = curWord.trim();
 
-        if (curWordTrimmed.length < input.length) {
+        if (curWord.length < input.length) {
+            if (curWord.length === 0) {
+                setInput(' ');
+                return;
+            }
             setCharNum(prev => prev - 1);
-            setRawCharNum(prev => prev + 1);
-        } else if (curWordTrimmed.length > 0) {
+            setRawCharNum(prev => prev - 1);
+            setInput(curWord);
+            return;
+        } else {
             setCharNum(prev => prev + 1);
             setRawCharNum(prev => prev + 1);
-        } else {
-            return;
         }
 
         if (lastChar === ' ') {
@@ -151,48 +156,6 @@ export default function TypingArea({ mode, timeMode, wordMode }) {
 
             setCurIndex(prev => prev + 1);
             setInput(' ');
-        } else {
-            setInput(curWord);
-        }
-    };
-
-    const handleInputChange = (event) => {
-        if (!timerOn) setTimerOn(true);
-
-        const curWord = event.target.value;
-        const lastChar = curWord[curWord.length - 1];
-        const curWordTrimmed = curWord.trim();
-
-        if (curWordTrimmed.length < input.length) {
-            setCharNum(prev => prev - 1);
-            setRawCharNum(prev => prev + 1);
-        } else if (curWordTrimmed.length > 0) {
-            setCharNum(prev => prev + 1);
-            setRawCharNum(prev => prev + 1);
-        } else {
-            return;
-        }
-
-        if (lastChar === ' ') {
-            const curCharOnLineNum = charOnLineNum + generatedWords[curIndex].length + 1;
-
-            // Mark the words' indices of the last typed line
-            if (curIndex + 1 < generatedWords.length && curCharOnLineNum + generatedWords[curIndex + 1].length > charOnLineLim) {
-                setLineStartIndex(lineEndIndex + 1);
-                setLineEndIndex(curIndex + 1);
-                setCharOnLineNum(0);
-            } else {
-                setCharOnLineNum(curCharOnLineNum);
-            }
-
-            if (curWordTrimmed === generatedWords[curIndex]) {
-                setCorrectWordIndex(prevItems => new Set(prevItems).add(curIndex));
-            } else {
-                setIncorrectWordIndex(prevItems => new Set(prevItems).add(curIndex));
-            }
-
-            setCurIndex(prev => prev + 1);
-            setInput('');
         } else {
             setInput(curWord);
         }
@@ -233,8 +196,8 @@ export default function TypingArea({ mode, timeMode, wordMode }) {
                             type="text"
                             className={styles.input}
                             onChange={handleInputChangeTimeMode}
-                            value={input}
                             autoFocus
+                            value={input}
                         />
                         <Timer
                             setTimeRemaining={setTimeRemaining}
